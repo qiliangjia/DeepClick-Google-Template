@@ -1,5 +1,5 @@
 homepage: "https://www.deepclick.com"
 documentation: "https://docs.deepclick.com"
 versions:
-  - sha: PLACEHOLDER_SHA
+  - sha: db114e9a0723ee01e1ad7c9b55f93aab3c8834bb
     changeNotes: Initial release.

@@ -1,5 +1,5 @@
 homepage: "https://www.deepclick.com"
 documentation: "https://docs.deepclick.com"
 versions:
-  - sha: db114e9a0723ee01e1ad7c9b55f93aab3c8834bb
+  - sha: 013b6b0a6a85f5703c72ac4baa19a239569115f7
     changeNotes: Initial release.

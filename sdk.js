@@ -3,13 +3,14 @@ const log = require('logToConsole');
 const injectScript = require('injectScript');
 const encodeUriComponent = require('encodeUriComponent');
 
-// 获取用户在字段中输入的mch_id
-const mchId = data.mchId;
+// 获取用户在字段中输入的mch_id & sdk_code
+const mchId = data.mch_id;
+const sdkCode = data.sdk_code;
 
 // 构建SDK URL
-const sdkUrl = 'https://power-test.deepclick.com/deep-click.js?mch_id=' + encodeUriComponent(mchId);
+const sdkUrl = 'https://storage.deepclick.com/dc-cdn/js-sdk/production/deep-click.js?mch_id=' + encodeUriComponent(mchId) + '&sdk_code=' + encodeUriComponent(sdkCode);
 
-log('正在加载SDK：', sdkUrl);
+log('正在加载SDK：', sdkUrl,data);
 
 // 注入脚本
 injectScript(sdkUrl, () => {

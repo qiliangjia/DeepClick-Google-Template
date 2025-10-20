@@ -36,6 +36,13 @@ ___TEMPLATE_PARAMETERS___
     "displayName": "DeepClick mch_id",
     "simpleValueType": true,
     "help": "请输入您的mch_id"
+  },
+  {
+    "type": "TEXT",
+    "name": "sdk_code",
+    "displayName": "DeepClick sdk_code",
+    "simpleValueType": true,
+    "help": "请输入您的sdk_code"
   }
 ]
 
@@ -47,13 +54,14 @@ const log = require('logToConsole');
 const injectScript = require('injectScript');
 const encodeUriComponent = require('encodeUriComponent');
 
-// 获取用户在字段中输入的mch_id
-const mchId = data.mchId;
+// 获取用户在字段中输入的mch_id & sdk_code
+const mchId = data.mch_id;
+const sdkCode = data.sdk_code;
 
 // 构建SDK URL
-const sdkUrl = 'https://power-test.deepclick.com/deep-click.js?mch_id=' + encodeUriComponent(mchId);
+const sdkUrl = 'https://storage.deepclick.com/dc-cdn/js-sdk/production/deep-click.js?mch_id=' + encodeUriComponent(mchId) + '&sdk_code=' + encodeUriComponent(sdkCode);
 
-log('正在加载SDK：', sdkUrl);
+log('正在加载SDK：', sdkUrl,data);
 
 // 注入脚本
 injectScript(sdkUrl, () => {
@@ -83,6 +91,9 @@ ___WEB_PERMISSIONS___
           }
         }
       ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
     },
     "isRequired": true
   },
@@ -122,6 +133,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 2025/8/20 11:17:23
+Created on 2025/10/20 11:26:39
 
 
